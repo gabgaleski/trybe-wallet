@@ -27,7 +27,7 @@ class Login extends React.Component {
     const { email, password } = this.state;
     const minPassword = 6;
     return (
-      <div>
+      <form>
         <label htmlFor="email">
           <input
             placeholder="Email"
@@ -60,7 +60,7 @@ class Login extends React.Component {
         >
           Entrar
         </button>
-      </div>
+      </form>
     );
   }
 }
