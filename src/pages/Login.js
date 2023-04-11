@@ -20,7 +20,7 @@ class Login extends React.Component {
     const { history, dispatch } = this.props;
     const { email } = this.state;
     dispatch(userInfos(email));
-    return history.push('/carteira');
+    history.push('/carteira');
   };
 
   render() {
@@ -51,6 +51,7 @@ class Login extends React.Component {
           />
         </label>
         <button
+          type="button"
           disabled={
             !(password.length >= minPassword
               && email.includes('@') && email.includes('.com'))
