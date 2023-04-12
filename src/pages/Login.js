@@ -29,6 +29,7 @@ class Login extends React.Component {
     return (
       <form>
         <label htmlFor="email">
+          Email
           <input
             placeholder="Email"
             id="email"
@@ -40,6 +41,7 @@ class Login extends React.Component {
           />
         </label>
         <label htmlFor="password">
+          Senha
           <input
             placeholder="Password"
             id="password"
