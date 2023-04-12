@@ -10,8 +10,6 @@ const store = createStore(
 
 export default store;
 
-// Ideia retirada do codigo da Natália Schmidt para o Cypress encontrar o store
-
 if (window.Cypress) {
   window.store = store;
 }

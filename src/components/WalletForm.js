@@ -1,53 +1,108 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchAPI } from '../redux/actions';
+import { fetchAPI, fetchExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
+  state = {
+    id: 0,
+    value: '',
+    description: '',
+    typeCoin: 'USD',
+    method: 'Dinheiro',
+    type: 'Alimentação',
+  };
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchAPI());
   }
 
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  onClick = () => {
+    this.setState((prev) => ({
+      id: prev.id + 1,
+    }));
+    const { dispatch } = this.props;
+    dispatch(fetchExpenses(this.state));
+
+    this.setState({
+      value: '',
+      description: '',
+    });
+  };
+
   render() {
     const { currencies } = this.props;
+    const { value, description, typeCoin, type, method } = this.state;
     return (
       <div>
-        <label htmlFor="input-value">
+        <label htmlFor="value">
           Valor:
           <input
-            id="input-value"
-            name="input-value"
+            id="value"
+            name="value"
             data-testid="value-input"
             type="number"
+            onChange={ this.handleChange }
+            value={ value }
           />
         </label>
-        <label htmlFor="input-description">
+        <label htmlFor="description">
           Descrição:
           <input
-            id="input-description"
-            name="input-description"
+            id="description"
+            name="description"
             data-testid="description-input"
             type="text"
+            onChange={ this.handleChange }
+            value={ description }
           />
         </label>
-        <select data-testid="currency-input">
+        <select
+          name="typeCoin"
+          onChange={ this.handleChange }
+          value={ typeCoin }
+          data-testid="currency-input"
+        >
           {currencies.map((element) => (
             <option key={ element }>{element}</option>
           ))}
         </select>
-        <select data-testid="method-input">
+        <select
+          name="method"
+          onChange={ this.handleChange }
+          value={ method }
+          data-testid="method-input"
+        >
           <option>Dinheiro</option>
           <option>Cartão de crédito</option>
           <option>Cartão de débito</option>
         </select>
-        <select data-testid="tag-input">
+        <select
+          name="type"
+          onChange={ this.handleChange }
+          value={ type }
+          data-testid="tag-input"
+        >
           <option>Alimentação</option>
           <option>Lazer</option>
           <option>Trabalho</option>
           <option>Transporte</option>
           <option>Saúde</option>
         </select>
+        <button
+          onClick={ this.onClick }
+        >
+          Adicionar despesa
+        </button>
       </div>
     );
   }
