@@ -47,7 +47,7 @@ export const fetchExpenses = (infos) => async (dispatch) => {
 
   const expensesValue = [infos].map((element) => {
     const getValues = Object.values(element.exchangeRates);
-    const findValues = getValues.filter((value) => value.code === element.typeCoin);
+    const findValues = getValues.filter((value) => value.code === element.currency);
     const totalValue = findValues[0].ask * element.value;
     return totalValue;
   });

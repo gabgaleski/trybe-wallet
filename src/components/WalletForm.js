@@ -8,9 +8,9 @@ class WalletForm extends Component {
     id: 0,
     value: '',
     description: '',
-    typeCoin: 'USD',
+    currency: 'USD',
     method: 'Dinheiro',
-    type: 'Alimentação',
+    tag: 'Alimentação',
   };
 
   componentDidMount() {
@@ -41,7 +41,7 @@ class WalletForm extends Component {
 
   render() {
     const { currencies } = this.props;
-    const { value, description, typeCoin, type, method } = this.state;
+    const { value, description, currency, tag, method } = this.state;
     return (
       <div>
         <label htmlFor="value">
@@ -67,9 +67,9 @@ class WalletForm extends Component {
           />
         </label>
         <select
-          name="typeCoin"
+          name="currency"
           onChange={ this.handleChange }
-          value={ typeCoin }
+          value={ currency }
           data-testid="currency-input"
         >
           {currencies.map((element) => (
@@ -87,9 +87,9 @@ class WalletForm extends Component {
           <option>Cartão de débito</option>
         </select>
         <select
-          name="type"
+          name="tag"
           onChange={ this.handleChange }
-          value={ type }
+          value={ tag }
           data-testid="tag-input"
         >
           <option>Alimentação</option>
