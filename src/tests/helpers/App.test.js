@@ -114,7 +114,7 @@ describe('Testando a funcionalidade do componente wallet', () => {
       name: /Entrar/i,
     });
 
-    userEvent.type(getInputEmail, 'trybe@teste.com');
+    userEvent.type(getInputEmail, 'teste@teste.com');
     userEvent.type(getInputPassword, '123123123');
     userEvent.click(getButton);
 
