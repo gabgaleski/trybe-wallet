@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Table extends Component {
+  getName = (expenses, info) => {
+    const { exchangeRates } = expenses;
+    const valuesExchange = Object.values(exchangeRates);
+    const getCoin = valuesExchange.filter((coin) => coin.code === expenses.currency);
+
+    if (info === 'ask') return Number(getCoin[0][info]);
+
+    return getCoin[0][info];
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -34,10 +44,23 @@ class Table extends Component {
                   {expense.method}
                 </td>
                 <td>
-                  {expense.value}
+                  {Number(expense.value).toFixed(2)}
                 </td>
                 <td>
-                  a
+                  {this.getName(expense, 'name')}
+                </td>
+                <td>
+                  {(this.getName(expense, 'ask')).toFixed(2)}
+                </td>
+                <td>
+                  {((this.getName(expense, 'ask')) * Number(expense.value)).toFixed(2)}
+                </td>
+                <td>
+                  Real
+                </td>
+                <td>
+                  <button>Editar</button>
+                  <button>Excluir</button>
                 </td>
               </tr>
             ))}
