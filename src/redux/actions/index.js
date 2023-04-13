@@ -3,6 +3,8 @@ export const GET_USER_INFOS = 'GET_USER_INFOS';
 export const GET_CURRENCIES_API = 'GET_CURRENCIES_API';
 export const GET_EXPENSES_WALLET = 'GET_EXPENSES_WALLET';
 export const UPDATE_VALUE_EXPENSES = 'UPDATE_VALUE_EXPENSES';
+export const UPDATE_DELETED_EXPENSES = 'UPDATE_DELETED_EXPENSES';
+export const UPDATE_DELETED_VALUE_EXPENSES = 'UPDATE_DELETED_VALUE_EXPENSES';
 
 export const userInfos = (email) => ({
   type: GET_USER_INFOS,
@@ -27,6 +29,20 @@ export const expensesWallet = (modInfos) => ({
 
 export const updateValue = (value) => ({
   type: UPDATE_VALUE_EXPENSES,
+  payload: {
+    value,
+  },
+});
+
+export const deletedExpenses = (newExpenses) => ({
+  type: UPDATE_DELETED_EXPENSES,
+  payload: {
+    newExpenses,
+  },
+});
+
+export const updateValueDeleted = (value) => ({
+  type: UPDATE_DELETED_VALUE_EXPENSES,
   payload: {
     value,
   },

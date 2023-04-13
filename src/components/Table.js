@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deletedExpenses, updateValueDeleted } from '../redux/actions';
 
 class Table extends Component {
   getName = (expenses, info) => {
@@ -11,6 +12,14 @@ class Table extends Component {
     if (info === 'ask') return Number(getCoin[0][info]);
 
     return getCoin[0][info];
+  };
+
+  onClickDeleted = (expens) => {
+    const { dispatch, expenses } = this.props;
+    const newExpenses = expenses.filter((element) => element.id !== expens.id);
+    const value = ((this.getName(expens, 'ask')) * Number(expens.value));
+    dispatch(updateValueDeleted(value));
+    dispatch(deletedExpenses(newExpenses));
   };
 
   render() {
@@ -60,7 +69,13 @@ class Table extends Component {
                 </td>
                 <td>
                   <button>Editar</button>
-                  <button>Excluir</button>
+                  <button
+                    onClick={ () => this.onClickDeleted(expense) }
+                    data-testid="delete-btn"
+                  >
+                    Excluir
+
+                  </button>
                 </td>
               </tr>
             ))}
@@ -79,6 +94,7 @@ const mapStateToProps = (state) => ({
 
 Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);
