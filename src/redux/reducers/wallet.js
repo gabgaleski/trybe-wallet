@@ -3,7 +3,8 @@ import { GET_CURRENCIES_API,
   GET_EXPENSES_WALLET,
   UPDATE_VALUE_EXPENSES,
   UPDATE_DELETED_EXPENSES,
-  UPDATE_DELETED_VALUE_EXPENSES } from '../actions';
+  UPDATE_DELETED_VALUE_EXPENSES,
+  EDIT_EXPENSES } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -39,6 +40,12 @@ const walletReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       totalValue: state.totalValue - action.payload.value,
+    };
+  case EDIT_EXPENSES:
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.payload.id,
     };
   default:
     return state;

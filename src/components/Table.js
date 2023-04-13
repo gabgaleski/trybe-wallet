@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deletedExpenses, updateValueDeleted } from '../redux/actions';
+import { deletedExpenses, updateValueDeleted, editExpenses } from '../redux/actions';
 
 class Table extends Component {
   getName = (expenses, info) => {
@@ -14,12 +14,17 @@ class Table extends Component {
     return getCoin[0][info];
   };
 
-  onClickDeleted = (expens) => {
+  onClickDeleted = (expense) => {
     const { dispatch, expenses } = this.props;
-    const newExpenses = expenses.filter((element) => element.id !== expens.id);
-    const value = ((this.getName(expens, 'ask')) * Number(expens.value));
+    const newExpenses = expenses.filter((element) => element.id !== expense.id);
+    const value = ((this.getName(expense, 'ask')) * Number(expense.value));
     dispatch(updateValueDeleted(value));
     dispatch(deletedExpenses(newExpenses));
+  };
+
+  onClickEdit = (expense) => {
+    const { dispatch } = this.props;
+    dispatch(editExpenses(expense.id));
   };
 
   render() {
@@ -68,7 +73,13 @@ class Table extends Component {
                   Real
                 </td>
                 <td>
-                  <button>Editar</button>
+                  <button
+                    onClick={ () => this.onClickEdit(expense) }
+                    data-testid="edit-btn"
+                  >
+                    Editar
+
+                  </button>
                   <button
                     onClick={ () => this.onClickDeleted(expense) }
                     data-testid="delete-btn"

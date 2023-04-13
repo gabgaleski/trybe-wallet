@@ -40,8 +40,15 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { currencies } = this.props;
+    const { currencies, editor } = this.props;
     const { value, description, currency, tag, method } = this.state;
+    const theButton = !editor ? (
+      <button
+        onClick={ this.onClick }
+      >
+        Adicionar despesa
+      </button>) : <button>Editar despesa</button>;
+
     return (
       <div>
         <label htmlFor="value">
@@ -98,11 +105,7 @@ class WalletForm extends Component {
           <option>Transporte</option>
           <option>Saúde</option>
         </select>
-        <button
-          onClick={ this.onClick }
-        >
-          Adicionar despesa
-        </button>
+        {theButton}
       </div>
     );
   }
@@ -111,10 +114,12 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  editor: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  editor: state.wallet.editor,
 });
 
 export default connect(mapStateToProps)(WalletForm);

@@ -5,6 +5,7 @@ export const GET_EXPENSES_WALLET = 'GET_EXPENSES_WALLET';
 export const UPDATE_VALUE_EXPENSES = 'UPDATE_VALUE_EXPENSES';
 export const UPDATE_DELETED_EXPENSES = 'UPDATE_DELETED_EXPENSES';
 export const UPDATE_DELETED_VALUE_EXPENSES = 'UPDATE_DELETED_VALUE_EXPENSES';
+export const EDIT_EXPENSES = 'EDIT_EXPENSES';
 
 export const userInfos = (email) => ({
   type: GET_USER_INFOS,
@@ -45,6 +46,13 @@ export const updateValueDeleted = (value) => ({
   type: UPDATE_DELETED_VALUE_EXPENSES,
   payload: {
     value,
+  },
+});
+
+export const editExpenses = (id) => ({
+  type: EDIT_EXPENSES,
+  payload: {
+    id,
   },
 });
 
