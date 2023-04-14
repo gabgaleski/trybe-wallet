@@ -2,10 +2,9 @@
 export const GET_USER_INFOS = 'GET_USER_INFOS';
 export const GET_CURRENCIES_API = 'GET_CURRENCIES_API';
 export const GET_EXPENSES_WALLET = 'GET_EXPENSES_WALLET';
-export const UPDATE_VALUE_EXPENSES = 'UPDATE_VALUE_EXPENSES';
 export const UPDATE_DELETED_EXPENSES = 'UPDATE_DELETED_EXPENSES';
-export const UPDATE_DELETED_VALUE_EXPENSES = 'UPDATE_DELETED_VALUE_EXPENSES';
 export const EDIT_EXPENSES = 'EDIT_EXPENSES';
+export const SAVE_EDIT_EXPENSES = 'SAVE_EDIT_EXPENSES';
 
 export const userInfos = (email) => ({
   type: GET_USER_INFOS,
@@ -28,13 +27,6 @@ export const expensesWallet = (modInfos) => ({
   },
 });
 
-export const updateValue = (value) => ({
-  type: UPDATE_VALUE_EXPENSES,
-  payload: {
-    value,
-  },
-});
-
 export const deletedExpenses = (newExpenses) => ({
   type: UPDATE_DELETED_EXPENSES,
   payload: {
@@ -42,17 +34,17 @@ export const deletedExpenses = (newExpenses) => ({
   },
 });
 
-export const updateValueDeleted = (value) => ({
-  type: UPDATE_DELETED_VALUE_EXPENSES,
-  payload: {
-    value,
-  },
-});
-
 export const editExpenses = (id) => ({
   type: EDIT_EXPENSES,
   payload: {
     id,
+  },
+});
+
+export const saveEdit = (expensesEdited) => ({
+  type: SAVE_EDIT_EXPENSES,
+  payload: {
+    expensesEdited,
   },
 });
 
@@ -68,13 +60,4 @@ export const fetchExpenses = (infos) => async (dispatch) => {
   const data = await response.json();
   infos.exchangeRates = data;
   dispatch(expensesWallet(infos));
-
-  const expensesValue = [infos].map((element) => {
-    const getValues = Object.values(element.exchangeRates);
-    const findValues = getValues.filter((value) => value.code === element.currency);
-    const totalValue = findValues[0].ask * element.value;
-    return totalValue;
-  });
-
-  dispatch(updateValue(Number(expensesValue[0])));
 };

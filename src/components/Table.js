@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deletedExpenses, updateValueDeleted, editExpenses } from '../redux/actions';
+import { deletedExpenses, editExpenses } from '../redux/actions';
 
 class Table extends Component {
   getName = (expenses, info) => {
@@ -17,8 +17,6 @@ class Table extends Component {
   onClickDeleted = (expense) => {
     const { dispatch, expenses } = this.props;
     const newExpenses = expenses.filter((element) => element.id !== expense.id);
-    const value = ((this.getName(expense, 'ask')) * Number(expense.value));
-    dispatch(updateValueDeleted(value));
     dispatch(deletedExpenses(newExpenses));
   };
 
@@ -96,8 +94,6 @@ class Table extends Component {
     );
   }
 }
-
-// Continuar, Procurar a moeda dentro do Objeto de Objetos
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
