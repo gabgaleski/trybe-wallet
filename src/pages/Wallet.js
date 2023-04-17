@@ -7,11 +7,11 @@ import Table from '../components/Table';
 class Wallet extends React.Component {
   render() {
     return (
-      <div>
+      <section className="main-container">
         <Header />
         <WalletForm />
         <Table />
-      </div>
+      </section>
     );
   }
 }
