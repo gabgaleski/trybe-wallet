@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 import './Login.css';
 import './Header.css';
+import './WalletForm.css';
 
 class App extends React.Component {
   render() {

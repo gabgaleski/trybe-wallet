@@ -67,16 +67,20 @@ class WalletForm extends Component {
     const { value, description, currency, tag, method } = this.state;
     const theButton = !editor ? (
       <button
+        type="button"
         onClick={ this.onClick }
       >
         Adicionar despesa
-      </button>) : (<button onClick={ this.onClickSaveEdit }>Editar despesa</button>);
+      </button>
+    ) : (
+      <button type="button" onClick={ this.onClickSaveEdit }>Editar despesa</button>);
 
     return (
-      <div>
+      <form className="form-wallet">
         <label htmlFor="value">
           Valor:
           <input
+            className="input-value"
             id="value"
             name="value"
             data-testid="value-input"
@@ -107,6 +111,7 @@ class WalletForm extends Component {
           ))}
         </select>
         <select
+          className="method-select"
           name="method"
           onChange={ this.handleChange }
           value={ method }
@@ -117,6 +122,7 @@ class WalletForm extends Component {
           <option>Cartão de débito</option>
         </select>
         <select
+          className="select-tag"
           name="tag"
           onChange={ this.handleChange }
           value={ tag }
@@ -129,7 +135,7 @@ class WalletForm extends Component {
           <option>Saúde</option>
         </select>
         {theButton}
-      </div>
+      </form>
     );
   }
 }
