@@ -42,3 +42,4 @@ Projeto Desenvolvido durante o curso da Trybe com foco na utilização do Redux 
 - Adicionar icons nos botoes (CSS)
 - Ajustar a tabela e background (CSS)
 - Mobile (CSS)
+- Mudança nos inputs apos o click para editar (JS)
