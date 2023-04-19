@@ -36,3 +36,9 @@ Projeto Desenvolvido durante o curso da Trybe com foco na utilização do Redux 
 # :scroll: Nota
 
  <img width="700" alt="Imagem pagina wallet" src="./imagesReadme/nota.png">
+ 
+# :construction: To Implement :construction:
+
+- Adicionar icons nos botoes (CSS)
+- Ajustar a tabela e background (CSS)
+- Mobile (CSS)
