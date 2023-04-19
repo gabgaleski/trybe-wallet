@@ -1,26 +1,10 @@
-# :money_with_wings: Trybe Wallet! :money_with_wings:
-
-<br>
-
-# :clipboard: About
-
-Projeto Desenvolvido durante o curso da Trybe com foco na utilização do Redux e do Redux thank. Nele Foi criado Uma aplicação com react para registro de gastos estrangeiros, fazendo a conversao para o Real no momento do cambio atual, utilizando API, que muda conforme o cambio muda, e gerando uma tabela de gastos onde é possivel editar, excluir e adicionar mais gastos.
-
-
-
-<br>
-
-
-# :hammer_and_wrench: Skills & Tools
-
-- HTML5
-- CSS3
-- JavaScript ES6+
-- React.js
-- React Testing Library
-- Jest
-- Redux
-- Redux thunk
-
-
-# :scroll: Nota
+# :construction: README em construção ! :construction:
+<!-- Olá, Tryber!
+Esse é apenas um arquivo inicial para o README do seu projeto.
+É essencial que você preencha esse documento por conta própria, ok?
+Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+:warning: IMPORTANTE: você precisa deixar nítido:
+- quais arquivos/pastas foram desenvolvidos por você; 
+- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
+- quais arquivos/pastas foram desenvolvidos pela Trybe.
+-->
