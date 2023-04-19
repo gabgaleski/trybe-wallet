@@ -1,9 +1,18 @@
 # :money_with_wings: Trybe Wallet! :money_with_wings:
 
-
-
 <br>
 
+# :camera_flash: Imagens do Projeto
+
+<details>
+  <summary><strong>Imagens</strong></summary><br />
+  
+  <img width="900" alt="Imagem pagina de login" src="./imagesReadme/pageLogin.png">
+  <img width="900" alt="Imagem pagina wallet" src="./imagesReadme/pageWallet.png">
+
+</details>
+
+<br>
 # :clipboard: About
 Projeto Desenvolvido durante o curso da Trybe com foco na utilização do Redux e do Redux thank. Nele Foi criado Uma aplicação com react para registro de gastos estrangeiros, fazendo a conversao para o Real no momento do cambio atual, utilizando API, que muda conforme o cambio muda, e gerando uma tabela de gastos onde é possivel editar, excluir e adicionar mais gastos.
 
@@ -24,3 +33,5 @@ Projeto Desenvolvido durante o curso da Trybe com foco na utilização do Redux 
 <br>
 
 # :scroll: Nota
+
+ <img width="700" alt="Imagem pagina wallet" src="./imagesReadme/nota.png">
