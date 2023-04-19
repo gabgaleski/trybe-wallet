@@ -25,7 +25,18 @@
 }
 
 .table-container button {
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
   height: 30px;
   margin-left: 5px;
-  width: 50px;
+  width: 55px;
+}
+
+.edit-button {
+  background-color: #2fc18c;
+}
+
+.delet-button {
+  background-color: red;
 }

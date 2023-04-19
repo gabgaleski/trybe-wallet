@@ -70,6 +70,7 @@ class Table extends Component {
                 </td>
                 <td>
                   <button
+                    className="edit-button"
                     onClick={ () => this.onClickEdit(expense) }
                     data-testid="edit-btn"
                   >
@@ -77,6 +78,7 @@ class Table extends Component {
 
                   </button>
                   <button
+                    className="delet-button"
                     onClick={ () => this.onClickDeleted(expense) }
                     data-testid="delete-btn"
                   >
