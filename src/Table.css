@@ -1,0 +1,31 @@
+.section-table {
+  background-color: #3255be;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  margin: 5px;
+  min-height: 50vh;
+  padding: 5px;
+}
+
+.table-container {
+  border-radius: 5px;
+  text-align: center;
+  width: 70vw;
+}
+
+.table-container th {
+  height: 45px;
+  width: 170px;
+}
+
+.table-container td {
+  border: none;
+  padding-top: 20px;
+}
+
+.table-container button {
+  height: 30px;
+  margin-left: 5px;
+  width: 50px;
+}

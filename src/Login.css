@@ -8,6 +8,7 @@
   align-items: center;
   background: url('./images/background.svg');
   background-color: rgb(38, 173, 38);
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;

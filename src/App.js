@@ -5,6 +5,7 @@ import Wallet from './pages/Wallet';
 import './Login.css';
 import './Header.css';
 import './WalletForm.css';
+import './Table.css';
 
 class App extends React.Component {
   render() {

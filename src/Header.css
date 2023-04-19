@@ -1,5 +1,8 @@
 .main-container {
   align-items: center;
+  background: url('./images/background.svg');
+  background-color: rgb(38, 173, 38);
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -8,7 +11,7 @@
 
 .header-container {
   align-items: center;
-  background-color: rgb(230, 224, 224);
+  background-color: rgba(255, 255, 255, 0.938);
   display: flex;
   justify-content: space-around;
   padding: 5px;

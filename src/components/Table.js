@@ -28,20 +28,18 @@ class Table extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <div>
-        <table border="1">
+      <section className="section-table">
+        <table className="table-container" border="1">
           <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
-            </tr>
+            <th>Descrição</th>
+            <th>Tag</th>
+            <th>Método de pagamento</th>
+            <th>Valor</th>
+            <th>Moeda</th>
+            <th>Câmbio utilizado</th>
+            <th>Valor convertido</th>
+            <th>Moeda de conversão</th>
+            <th>Editar/Excluir</th>
           </thead>
           <tbody>
             {expenses.map((expense) => (
@@ -90,7 +88,7 @@ class Table extends Component {
             ))}
           </tbody>
         </table>
-      </div>
+      </section>
     );
   }
 }
